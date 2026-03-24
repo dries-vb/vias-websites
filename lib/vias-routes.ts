@@ -21,3 +21,9 @@ export const viasRoutes: PrototypeRoute[] = [
 export function getViasRoute(slug: string[]): PrototypeRoute | undefined {
   return viasRoutes.find((route) => route.slug.join("/") === slug.join("/"));
 }
+
+export function getViasStaticSlugParams(): { slug: string[] }[] {
+  return viasRoutes
+    .filter((route) => route.slug.length > 0)
+    .map((route) => ({ slug: route.slug }));
+}

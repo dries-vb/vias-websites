@@ -23,3 +23,10 @@ export const afzRoutes: PrototypeRoute[] = [
 export function getAfzRoute(slug: string[]): PrototypeRoute | undefined {
   return afzRoutes.find((route) => route.slug.join("/") === slug.join("/"));
 }
+
+/** Paths for `output: 'export'` / Cloudflare Pages — excludes empty home (`/allforzero` uses `page.tsx`). */
+export function getAfzStaticSlugParams(): { slug: string[] }[] {
+  return afzRoutes
+    .filter((route) => route.slug.length > 0)
+    .map((route) => ({ slug: route.slug }));
+}

@@ -21,3 +21,9 @@ export const esraRoutes: PrototypeRoute[] = [
   { slug: ["contact"], title: "Contact", image: "/esra/contact.png" },
   { slug: ["faq"], title: "Frequently Asked Questions", image: "/esra/faq.png" },
 ];
+
+export function getEsraStaticSlugParams(): { slug: string[] }[] {
+  return esraRoutes
+    .filter((route) => route.slug.length > 0)
+    .map((route) => ({ slug: route.slug }));
+}
