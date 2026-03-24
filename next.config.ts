@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export', // DEZE REGEL IS NODIG!
+  output: 'export',
 };
 
 export default nextConfig;
